@@ -14,7 +14,7 @@ public class SavingsAccount extends Account{
 	// insättning
 	public void receive(double a) {
 		
-		theBalance = theBalance + a; //adds
+		theBalance = theBalance + a; //adds, uppdaterar konto saldo
 	}
 	
 	
