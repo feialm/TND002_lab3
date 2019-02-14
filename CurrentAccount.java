@@ -96,6 +96,7 @@ public class CurrentAccount extends Account {
 		
 		
 		theSavingsAccount.receive(amount); //ingen kontroll om inte konto finns vart? står ej i lab instruktion
+		// kallar på metoden receive(arg)
 		// skicka hur mycket pengar på kontot som ska skickas till annat konto
 		// till metoden receive i SavingsAccount
 		
@@ -107,10 +108,50 @@ public class CurrentAccount extends Account {
 		// här skickas kontonummer för sparkontot
 		// är det theCurrentAccount(this) eller theSavingsAccount??
 		// ska vara theSavingsAccount
+		// It should create an instance of Transaction with the appropriate numbers
+		// (number of savings account) and add it to theTransactions. 
 		Transaction newTransaction = new Transaction(theSavingsAccount.getAccountNumber(), 0-amount, theBalance );
-
-		theTransactions.add(newTransaction); //lägger in newTransaction i arrayen theTransactions
+		theTransactions.add(newTransaction);
+		//lägger in newTransaction i arrayen theTransactions
 	}
+	
+	
+	
+	
+	
+	public void send(int a, double b) {
+		
+		
+		
+		
+	}
+	
+	
+	
+	public void receive(double something) {
+		
+		
+		
+		
+	}
+	
+	
+	public void receive(int ff, double hh) {
+		
+		
+		
+	}
+	
+	
+	
+	public String listTransactions() {
+		
+		
+		return "hej";
+		
+		
+	}
+	
 	
 	
 }

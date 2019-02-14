@@ -2,8 +2,8 @@ package lab3;
 
 public class Transaction {
 
-	//store the information about each transfer in the class Transaction.
-	// GÖR INTE TRANSAKTIONEN
+	// the class Transaction store the information about each transfer in the class Transaction.
+	// klassen Transaction GÖR INTE TRANSAKTIONEN
 	private int otherAccount = 0;
 	private double money = 0.0;
 	private double balance = 0.0; // balance = saldo
@@ -13,8 +13,7 @@ public class Transaction {
 		// sparar undan värden från en transaktion
 		otherAccount = a;
 		money = b;
-		balance= c;
-		
+		balance= c;	
 	}
 	
 	
@@ -22,16 +21,14 @@ public class Transaction {
 	
 	
 	public String toString() {
+		//The constructor initializes the three instance variables and toString() writes them out
+		//The return value of toString()
 		
+		String result_transaction = String.format("Account: %2d" + "\n" + "Transferred money: %7.2d" +
+									"\n"+ "Balance: %7.2d");
 		
-		return "hejhejhej";
-	
-		/**
-		”Account : ” followed by the value of otherAccount (two
-				digits) followed by ”Transferred money : ” followed by money (5 digits before and 2 after the
-				radix point) followed by ”Balance : ” followed by balance (same format as money).
-		*/
-		
+		return result_transaction ;
+
 		
 	}
 	
