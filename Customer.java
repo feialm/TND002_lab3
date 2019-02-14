@@ -33,4 +33,4 @@ public class Customer {
 		result = result + "\n******************************";
 		return result;
 	}
-}
+} //måsvinge till Customer

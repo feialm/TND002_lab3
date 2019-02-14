@@ -1,14 +1,20 @@
 package lab3;
 import java.util.ArrayList;
 
+
 public class Bank {
 	private ArrayList<Account> theAccounts;
 	private ArrayList<Customer> theCustomers;
+	
+	
+	
 	
 	public Bank() {
 		theAccounts = new ArrayList<Account>();
 		theCustomers = new ArrayList<Customer>();
 	}
+	
+	
 	
 	public boolean hasCustomer(String arg) {
 		boolean dummy = false;
@@ -20,6 +26,9 @@ public class Bank {
 		return dummy;
 	}
 	
+	
+	
+	
 	public void addCustomer(String arg) {
 		if (hasCustomer(arg)) {
 			System.out.println("The customer already exists.");
@@ -30,6 +39,10 @@ public class Bank {
 		}
 	}
 	
+	
+	
+	
+	
 	public void addCurrentAccount(String arg1, double arg2) {
 		if (hasCustomer(arg1)) {
 			Customer dummy = getCustomer(arg1);
@@ -37,7 +50,7 @@ public class Bank {
 				System.out.println("The customer already has a current account.");
 			}
 			else {
-				CurrentAccount newAccount = new CurrentAccount(dummy,arg2);
+				CurrentAccount newAccount = new CurrentAccount(dummy, this, arg2); // this, dvs den banken när är i
 				theAccounts.add(newAccount);
 				dummy.addCurrentAccount(newAccount);
 				System.out.println("Added a account for " + dummy.getName());
@@ -47,6 +60,9 @@ public class Bank {
 			System.out.println("There is no customer with that name.");
 		}
 	}
+	
+	
+	
 	
 	public Customer getCustomer(String arg) {
 		if (!hasCustomer(arg)) return null;
@@ -61,6 +77,71 @@ public class Bank {
 		}
 	}
 	
+	
+	
+	
+	
+	// addSavingsAccount(String arg) should add a savings account to the current account of the
+	// customer with the name arg and attach it to theAccounts
+	public void addSavingsAccount(String nameOfCustomer) {
+		
+		
+		// forloopen för att kolla igenom alla customer, om det matchar namn
+		// om det matchar, add saving account to current account
+		for(int j = 0; j < theCustomers.size(); j++) {
+			if (nameOfCustomer.equals(theCustomers.get(j).getName())) {
+				
+				
+				Account myAccount = new Account();
+				theAccounts.add(myAccount);
+				
+			}
+			else {
+				System.out.println("There is no customer with that name.");
+			}
+		}	
+	}
+	
+	
+	
+	public Account getAccount(int hsfdvdf) {
+		
+
+		
+		
+	}
+	
+	
+	
+	public void computeAnnualChange() throws Exception {
+		
+		// Är det rätt med for loop här ?
+			for(int j = 0; j < theAccounts.size(); j++) {
+				
+				theAccounts.get(j).annualChange();
+			}
+		
+	}
+	
+	
+	
+	public void transfer(String asas, String ssa, double sxs) {
+		
+		
+		
+		
+	}
+	
+	
+	
+	public void transactions(String cdf) {
+		
+		
+	}
+	
+	
+	
+	
 	public String toString() {
 		String result = "Bank information : ";
 		double totalValue = 0.0;
@@ -72,4 +153,9 @@ public class Bank {
 		result = result + "\nIt controls a total of " + totalValue;
 		return result;
 	}
-}
+	
+	
+	
+}// måsvinge till Bank
+
+

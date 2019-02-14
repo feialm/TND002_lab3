@@ -27,7 +27,7 @@ public class Account {
 		return theBalance;
 	}
 	
-	public void annualChange()throws Exception{
+	public void annualChange() throws Exception{
 		// test if current or saving account
 		//comparing strings
 		
@@ -57,4 +57,9 @@ public class Account {
 		result = result + "\n******************************";
 		return result;
 	}
-}
+	
+	
+	
+	
+}// måsvinge till Account
+

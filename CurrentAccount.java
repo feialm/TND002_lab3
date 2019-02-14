@@ -92,7 +92,7 @@ public class CurrentAccount extends Account {
 	
 	
 	// uttag för currentaccount, insättning savingaccount
-	public void send(int amount) {
+	public void send(double amount) {
 		
 		
 		theSavingsAccount.receive(amount); //ingen kontroll om inte konto finns vart? står ej i lab instruktion
@@ -110,7 +110,7 @@ public class CurrentAccount extends Account {
 		// ska vara theSavingsAccount
 		// It should create an instance of Transaction with the appropriate numbers
 		// (number of savings account) and add it to theTransactions. 
-		Transaction newTransaction = new Transaction(theSavingsAccount.getAccountNumber(), 0-amount, theBalance );
+		Transaction newTransaction = new Transaction(theSavingsAccount.getAccountNumber(), -amount, theBalance );
 		theTransactions.add(newTransaction);
 		//lägger in newTransaction i arrayen theTransactions
 	}
@@ -118,40 +118,57 @@ public class CurrentAccount extends Account {
 	
 	
 	
-	
+	// Part D, sending to another persons account
 	public void send(int a, double b) {
 		
 		
 		
-		
 	}
 	
 	
 	
-	public void receive(double something) {
+	public void receive(double amount2) {
 		
 		
+		double money = theSavingsAccount.send(amount2); // kallar på metoden send i klassen SavingsAccount
 		
+		// add its return value to theBalance (from SavingsAccount)
+		theBalance += money; // money är värdet a i SavingsAccount, metoden a
+		
+		Transaction newTransaction = new Transaction(theSavingsAccount.getAccountNumber(), money ,theBalance);
+		theTransactions.add(newTransaction);
 		
 	}
+
 	
 	
+	
+	// Part D, receiving from another persons account
 	public void receive(int ff, double hh) {
-		
-		
+				
 		
 	}
+	
+	
 	
 	
 	
 	public String listTransactions() {
 		
+		String aString = String.format("Transaction summary of the current account " + accountNumber + "\n");
 		
-		return "hej";
 		
+		for (int i = 0; i < theTransactions.size(); i++)
+		{
+			aString += theTransactions.get(i).toString() + "\n";
+			// kanske kan ropa på metoden utan .toString() + "\n"
+		}
 		
+		return aString;
 	}
 	
 	
 	
-}
+	
+	
+} // måsvinge till CurrentAccount

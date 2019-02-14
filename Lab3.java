@@ -57,5 +57,7 @@ public class Lab3 {
 		theBank.computeAnnualChange();
 		System.out.println(theBank.getAccount(2));
 	}
+	
+	
 
-}
+} //måsvinge till Lab3

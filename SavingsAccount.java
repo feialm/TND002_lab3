@@ -40,4 +40,4 @@ public class SavingsAccount extends Account{
 	
 	
 	
-}
+} //måsvinge till SavingsAccount

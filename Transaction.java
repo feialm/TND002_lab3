@@ -25,7 +25,7 @@ public class Transaction {
 		//The return value of toString()
 		
 		String result_transaction = String.format("Account: %2d" + "\n" + "Transferred money: %7.2d" +
-									"\n"+ "Balance: %7.2d");
+									"\n"+ "Balance: %7.2d", otherAccount, money, balance );
 		
 		return result_transaction ;
 
@@ -34,4 +34,4 @@ public class Transaction {
 	
 	
 	
-}
+} // måsvinge till Transaction
