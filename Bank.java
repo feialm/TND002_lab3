@@ -6,9 +6,7 @@ public class Bank {
 	private ArrayList<Account> theAccounts;
 	private ArrayList<Customer> theCustomers;
 	
-	
-	
-	
+
 	public Bank() {
 		theAccounts = new ArrayList<Account>();
 		theCustomers = new ArrayList<Customer>();
@@ -134,7 +132,7 @@ public class Bank {
 	
 	
 	
-	public void computeAnnualChange() throws Exception {
+	public void computeAnnualChange() {
 		
 		// kopplar till metoden annualchange som:
 			// sätta in årets ränta på konto
@@ -148,18 +146,109 @@ public class Bank {
 	
 	
 	
-	public void transfer(String asas, String ssa, double sxs) {
+	public void transfer(String CustomersName, String command, double belopp) {
+		
+		Customer enCustomer = this.getCustomer(CustomersName);
+		
+		if (enCustomer == null) {
+			
+			return; //avsluta
+		}
+		
+		// frågar om kundens CurrentAccount
+		// enCustomer = kunden
+		CurrentAccount getCurrentAccountAvCustomer = enCustomer.getCurrentAccount();
 		
 		
+		// kollaro m kund har ett konto
+		if ( getCurrentAccountAvCustomer == null) {
+			
+			return; //avsluta
+		}
+			
+		// input is save, do this:
+			// check if customer has Saving Account
+		boolean CustomerHaveSavingAccount;
+		
+		if(command.equals("save")) {
+			
+			CustomerHaveSavingAccount = getCurrentAccountAvCustomer.hasSavingsAccount();
+			
+			if(CustomerHaveSavingAccount==false) {
+			
+				this.addSavingsAccount(CustomersName);
+				// anropar metoden addSavingsAccount
+				// skapar nytt sparkonto
+
+			}		
+			// för över pengar till saving account
+			getCurrentAccountAvCustomer.send(belopp);	
+		}
 		
 		
+
+		
+		if(command.equals("withdraw")) {
+			
+			CustomerHaveSavingAccount = getCurrentAccountAvCustomer.hasSavingsAccount();
+			
+			if(CustomerHaveSavingAccount==true) {
+				
+				getCurrentAccountAvCustomer.receive(belopp);
+				// pengar från saving account till lönekontot
+			}	
+			
+		}
+		
+		
+		// pengar från console
+		// inga pengar som förs över mellan konton
+		// nya utomstående pengar sätts in via input av den som kör programmet
+		if(command.equals("external")) {
+
+			getCurrentAccountAvCustomer.receive(0,belopp);
+		}
+		
+		
+		Customer customerFromCommand = getCustomer(command);
+		
+		// om en kund med namnet från input command
+		if(customerFromCommand != null) {
+		
+				CurrentAccount Account1 = enCustomer.getCurrentAccount();
+				CurrentAccount Account2 = customerFromCommand.getCurrentAccount();
+				
+				//int number1 = Account1.getAccountNumber();
+				//number1 behövs inte
+				int number2 = Account2.getAccountNumber();
+				
+				//int number2 = customerFromCommand.getCurrentAccount().getAccountNumber();
+				// samma sak
+				
+				
+				// You call the method send(number2, arg3) of
+				//the current account number1.
+				Account1.send(number2, belopp);	
+		}
 	}
 	
 	
 	
-	public void transactions(String cdf) {
+	public void transactions(String CustomerName) {
 		
+		Customer enCustomerName = this.getCustomer( CustomerName);
 		
+		if (enCustomerName == null) {
+			
+			return; //avsluta
+		}
+
+		CurrentAccount getCurrentAccountAvCustomer = enCustomerName.getCurrentAccount();
+	
+		if(getCurrentAccountAvCustomer!=null) {
+			// skriver ut strängen
+			System.out.println(getCurrentAccountAvCustomer.listTransactions());
+		}	
 	}
 	
 	

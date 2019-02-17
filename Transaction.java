@@ -24,9 +24,10 @@ public class Transaction {
 		//The constructor initializes the three instance variables and toString() writes them out
 		//The return value of toString()
 		
-		String result_transaction = String.format("Account: %2d" + "\n" + "Transferred money: %7.2d" +
-									"\n"+ "Balance: %7.2d", otherAccount, money, balance );
+		// String result_transaction = String.format("Account: %2.0d" + "\n" + "Transferred money: %8.2d" + "\n"+ "Balance: %8.2d", otherAccount, money, balance );
 		
+									
+		String result_transaction = "h";
 		return result_transaction ;
 
 		

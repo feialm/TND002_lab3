@@ -28,7 +28,7 @@ public class Account {
 		return theBalance;
 	}
 	
-	public void annualChange() throws Exception{
+	public void annualChange(){
 		// test if current or saving account
 		//comparing strings
 		
@@ -36,28 +36,47 @@ public class Account {
 		{
 			theBalance-=CURRENTACCOUNTFEE; //dras bort
 		}
-		else if(accountType.equals("Savings"))
+		else //(accountType.equals("Savings"))
 		{
 			theBalance=theBalance + (theBalance*SAVINGSINTEREST);
 		}
-		else
-		{
-			throw new Exception("No type matching!");
-			// Skapar nytt exception som lägger in denna strängen
-		}
-		
 		
 	}
 	
 	
 	public String toString() {
-		String result = "\n******************************"; 
-		result = result + "\nAccount number : " + accountNumber;
-		result = result + "\nCustomer : " + theCustomer.getName();
-		result = result + "\nBalance : " + theBalance;
-		result = result + "\n******************************";
+		
+		String result = null;
+		
+		if(this.accountType.equals("Current")) {
+			
+			CurrentAccount ettObjekt = (CurrentAccount)this;
+			// force to be CurrentAccount		
+
+			SavingsAccount askingIfSavingAccount =ettObjekt.getSavingsAccount();
+			
+			if (askingIfSavingAccount != null) {
+				//Savings account” followed by its account number and its value of theBalance.
+
+				result = "\n******************************"; 
+				result = result + "\nAccount number : " + accountNumber;
+				result = result + "\nCustomer : " + theCustomer.getName();
+				result = result + "\nBalance : " + theBalance;
+				result = result + "\nSavings account: " + askingIfSavingAccount.getAccountNumber() + "\nBalance: " + askingIfSavingAccount.getBalance();
+				result = result + "\n******************************";
+			}
+		}
+		else {
+			result = "\n******************************"; 
+			result = result + "\nAccount number : " + accountNumber;
+			result = result + "\nCustomer : " + theCustomer.getName();
+			result = result + "\nBalance : " + theBalance;
+			result = result + "\n******************************";
+			}
+		
+		
 		return result;
-	}
+		}
 	
 	
 	

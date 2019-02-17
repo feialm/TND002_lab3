@@ -17,6 +17,8 @@ public class CurrentAccount extends Account {
 		// The constructor gets an additional argument of the type Bank
 		//with which we initialize theBank.
 		
+		theTransactions = new ArrayList <Transaction>();
+		
 		accountType = "Current"; // tillger konto en som en viss typ
 	}
 	
