@@ -11,6 +11,7 @@ public class Account {
 	public final double CURRENTACCOUNTFEE = 10.0;
 	public final double SAVINGSINTEREST = 0.01;
 	
+	
 	public Account(Customer arg1, Bank aBank,  double arg2) {
 		theCustomer = arg1;
 		theBalance = arg2;

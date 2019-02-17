@@ -8,12 +8,12 @@ public class Transaction {
 	private double money = 0.0;
 	private double balance = 0.0; // balance = saldo
 	
-	public Transaction(int a, double b, double c) {
+	public Transaction(int kontonumb, double belopp, double saldo) {
 		
 		// sparar undan värden från en transaktion
-		otherAccount = a;
-		money = b;
-		balance= c;	
+		otherAccount = kontonumb;
+		money = belopp;
+		balance= saldo;	
 	}
 	
 	

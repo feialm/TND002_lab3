@@ -119,9 +119,35 @@ public class CurrentAccount extends Account {
 	
 	
 	// Part D, sending to another persons account
-	public void send(int a, double b) {
+	public void send(int arg1, double arg2) {
+	
+			// arg2 är pengarna som ska överföras till från konto till annat konto
 		
+			Account valueOfAccountNumber = theBank.getAccount(arg1);
+			// hämtar banken, och dens account nummer
+			
+			if(valueOfAccountNumber == null) {
+				System.out.println("No such account exists");
+			}	
+			else if(accountType.equals("Current")) {
+					
+				((CurrentAccount)valueOfAccountNumber).receive(arg1, arg2);
+				// metoden kallar på kontot där pengarna ska till
+				// valueOfAccountNumber är kontot man vill överföra till	
+				// Tvingar valueOfAccountNumber att bli ett CurrentAccount
 		
+				theBalance -= arg2; // remove money från kontot som man skickar ifrån
+				
+				Transaction newT = new Transaction(arg1, arg2 ,theBalance);
+				theTransactions.add(newT);
+						
+			}
+			else {
+				//(accountType.equals("Savings")) 
+				// hamnar här om theBnak är ett sparkonto
+					
+					System.out.println("That is not a current account.");
+				}
 		
 	}
 	
@@ -144,9 +170,18 @@ public class CurrentAccount extends Account {
 	
 	
 	// Part D, receiving from another persons account
-	public void receive(int ff, double hh) {
-				
+	public void receive(int arg1, double arg2) {
 		
+		// hämtar info om ett konto, belopp
+		// ökar saldot i det kontot
+		// lägger i transactionslistan theTransactions
+		
+		theBalance += arg2;
+		Transaction newTransaction = new Transaction(arg1, arg2, theBalance);
+			// arg1 = kontonummer
+			// arg2 = belopp
+			// theBalance = nya saldot efter adderat belopp
+		theTransactions.add(newTransaction);
 	}
 	
 	
