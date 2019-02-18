@@ -94,6 +94,9 @@ public class Bank {
 					return number;
 				}
 			}
+			
+			System.out.println("No such account exists");
+			// no such account found
 			return number;
 		}
 

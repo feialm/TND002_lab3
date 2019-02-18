@@ -48,33 +48,28 @@ public class Account {
 		
 		String result = null;
 		
+		result = "\n******************************"; 
+		result = result + "\nAccount number : " + accountNumber;
+		result = result + "\nCustomer : " + theCustomer.getName();
+		result = result + "\nBalance : " + theBalance;
+		result = result + "\n******************************";
+		
 		if(this.accountType.equals("Current")) {
 			
 			CurrentAccount ettObjekt = (CurrentAccount)this;
 			// force to be CurrentAccount		
 
 			SavingsAccount askingIfSavingAccount =ettObjekt.getSavingsAccount();
-			
+				
+			 
 			if (askingIfSavingAccount != null) {
 				//Savings account” followed by its account number and its value of theBalance.
-
-				result = "\n******************************"; 
-				result = result + "\nAccount number : " + accountNumber;
-				result = result + "\nCustomer : " + theCustomer.getName();
-				result = result + "\nBalance : " + theBalance;
-				result = result + "\nSavings account: " + askingIfSavingAccount.getAccountNumber() + "\nBalance: " + askingIfSavingAccount.getBalance();
+				result = result + "\nSavings account \nAccount number: " + askingIfSavingAccount.getAccountNumber() + "\nBalance: " + askingIfSavingAccount.getBalance();
 				result = result + "\n******************************";
 			}
+			
 		}
-		else {
-			result = "\n******************************"; 
-			result = result + "\nAccount number : " + accountNumber;
-			result = result + "\nCustomer : " + theCustomer.getName();
-			result = result + "\nBalance : " + theBalance;
-			result = result + "\n******************************";
-			}
-		
-		
+
 		return result;
 		}
 	

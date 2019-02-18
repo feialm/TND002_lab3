@@ -52,11 +52,11 @@ public class CurrentAccount extends Account {
 
 			theSavingsAccount  = new SavingsAccount(this);
 			// this. ett visst konto skickar med sig själv till en annan funktion
-			// htis. ett objekt av den klassen man befinner sig i
+			// this. ett objekt av den klassen man befinner sig i
 			// i det här fallet ett objekt av klassen CurrenAccount
 			// skapar nytt sparkonto i den för att den var tom
 			
-			System.out.println("Added a savings account to the: " + accountNumber);
+			System.out.println("Added a savings account to the current account: " + accountNumber);
 			return theSavingsAccount; // returnernar kontot
 		}	
 	}
@@ -140,7 +140,7 @@ public class CurrentAccount extends Account {
 		
 				theBalance -= arg2; // remove money från kontot som man skickar ifrån
 				
-				Transaction newT = new Transaction(arg1, arg2 ,theBalance);
+				Transaction newT = new Transaction(arg1, -arg2 ,theBalance);
 				theTransactions.add(newT);
 						
 			}
@@ -192,7 +192,7 @@ public class CurrentAccount extends Account {
 	
 	public String listTransactions() {
 		
-		String aString = String.format("Transaction summary of the current account " + accountNumber + "\n");
+		String aString = ("Transaction summary of the current account " + accountNumber + "\n");
 		
 		
 		for (int i = 0; i < theTransactions.size(); i++)
